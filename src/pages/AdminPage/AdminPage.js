@@ -24,7 +24,7 @@ const AdminPage = () => {
           </Typography>
         ) : (
           <Typography variant="h4">
-            Admin page
+            Admin page.
           </Typography>
         )
       }

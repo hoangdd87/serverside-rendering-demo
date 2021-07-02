@@ -13,7 +13,7 @@ import { ServerStyleSheets } from '@material-ui/core';
 process.env.NODE_ENV = 'production';
 
 const app = express();
-const port = 4001;
+const port = 8080;
 const buildPath = path.join(process.cwd(), 'build');
 
 app.use(express.static(buildPath, { index: false }));
@@ -34,6 +34,11 @@ fs.readFile(path.join(buildPath, 'index.html'), 'utf8', (err, data) => {
 app.get('*', async (request, response) => {
   const pathname = request.path.trim();
   const { foundRoute, match } = findRoute(pathname);
+  if(!foundRoute?.hydrate) {
+    const htmlResponse = indexHtmlFile
+        .replace('<div id="root"></div>', `<div id="root">This page will be rendered in browser</div>`)
+    return response.send(htmlResponse);
+  }
   const search = request._parsedUrl.search;
   const store = getStore();
   if (foundRoute && foundRoute.fetchDataForPage) {
