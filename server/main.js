@@ -9,6 +9,7 @@ import App from '../src/App/App';
 import { Provider } from 'react-redux';
 import { StaticRouter } from "react-router-dom";
 import { ServerStyleSheets } from '@material-ui/core';
+import {HelmetProvider} from "react-helmet-async";
 
 process.env.NODE_ENV = 'production';
 
@@ -48,20 +49,29 @@ app.get('*', async (request, response) => {
     }))
   }
   const sheets = new ServerStyleSheets();
+  const helmetContext = {};
   const app = ReactDOMServer.renderToString(
     sheets.collect(
       <Provider store={ store }>
         <StaticRouter location={ request.url } context={ {} }>
-          <App/>
+          <HelmetProvider context={helmetContext}>
+            <App/>
+          </HelmetProvider>
         </StaticRouter>
       </Provider>
     )
   );
   const preloadedState = store.getState();
+
+  const { helmet } = helmetContext;
+
+  console.log('helmet = ', helmet);
+  console.log('helmet = ', helmet.title.toString());
   
   const htmlResponse = indexHtmlFile
     .replace('<div id="root"></div>', `<div id="root">${ app }</div>`)
     .replace('<style id="jss-server-side"></style>', `<style id="jss-server-side">${ sheets.toString() }</style>`)
+    .replace('<meta id="helmet-server"/>', helmet.meta.toString() + helmet.title.toString())
     .replace('<script id="preload-state-server"></script>',
       `<script id="preload-state-server">
           window.__PRELOADED_STATE__ = ${ JSON.stringify(preloadedState).replace(/</g, '\\u003c') }

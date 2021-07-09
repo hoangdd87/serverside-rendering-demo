@@ -16,6 +16,11 @@ const PokemonPage = () => {
       <div className="container">
         <Helmet>
           <title>{ pokemon.name }</title>
+            <meta property="og:title" content={`Pokemon Detail page - ${name}`}/>
+            <meta property="og:description" content={`Server-side rendering for create react app. Pokemon detail: ${name}`}/>
+            <meta property="og:image" content = { sprites.front_default }/>
+            <meta name="twitter:card" content={`Server-side rendering for create react app. Pokemon detail: ${name}`}/>
+            <meta property="og:site_name" content="Server-side rendering for create react app"/>
         </Helmet>
         <Typography>ID: { name }</Typography>
         <Typography>Height: { height }</Typography>

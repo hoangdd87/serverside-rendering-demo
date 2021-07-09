@@ -6,6 +6,7 @@ import Table from '../../shared/components/Table/MyTable';
 import HighLightSearchText from '../../shared/components/HightLightSearchText/HighLightSearchText';
 import { makeStyles, TablePagination, TextField } from '@material-ui/core';
 import { Helmet } from 'react-helmet-async';
+import CONFIGS from "../../consts/CONFIGS";
 
 const getColumns = searchText => [
   {
@@ -81,6 +82,11 @@ const PokemonsPage = () => {
     <div className="pokemonsPage">
       <Helmet>
         <title>Pokemons List</title>
+        <meta property="og:title" content={`Pokemons List`}/>
+        <meta property="og:description" content={`Server-side rendering for create react app. Pokemons list`}/>
+        <meta property="og:image" content = { `${CONFIGS.ROOT_URL}/ssr.png` }/>
+        <meta name="twitter:card" content={`Server-side rendering for create react app. Pokemons list`}/>
+        <meta property="og:site_name" content="Server-side rendering for create react app"/>
       </Helmet>
       <TextField
         className={ classes.input }

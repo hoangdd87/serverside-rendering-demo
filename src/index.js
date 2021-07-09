@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import getStore from './redux/getStore'
 import { BrowserRouter } from "react-router-dom";
 import findRoute from './shared/helpers/findRoute/findRoute';
+import {HelmetProvider} from "react-helmet-async";
 
 // ************** Config front-end store *********************
 const preloadedState = window.__PRELOADED_STATE__
@@ -31,7 +32,9 @@ const Main = () => {
     <React.StrictMode>
       <Provider store={ store }>
         <BrowserRouter>
-          <App/>
+          <HelmetProvider>
+            <App/>
+          </HelmetProvider>
         </BrowserRouter>
       </Provider>
     </React.StrictMode>

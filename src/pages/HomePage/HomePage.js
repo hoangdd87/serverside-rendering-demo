@@ -1,12 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Typography } from '@material-ui/core';
+import CONFIGS from "../../consts/CONFIGS";
 
 const HomePage = () => {
   return (
     <>
       <Helmet>
         <title>Home</title>
+        <meta property="og:title" content="Home page"/>
+        <meta property="og:description" content="Server-side rendering for create react app. Lorem ipsum dolor sit amet posuere, congue massa"/>
+        <meta property="og:image" content = {`${CONFIGS.ROOT_URL}/ssr.png`}/>
+        <meta name="twitter:card" content="Home page"/>
+        <meta property="og:site_name" content="Server-side rendering for create react app"/>
       </Helmet>
       <div>
       <Typography variant="h4">Home page</Typography>

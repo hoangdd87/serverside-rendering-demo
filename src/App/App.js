@@ -15,7 +15,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 const App = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     const handleFetchDataForActivatedPage = ({ pathname, search }) => {
       const { foundRoute, match } = findRoute(pathname);
@@ -29,9 +29,8 @@ const App = () => {
     const unListen = history.listen(handleFetchDataForActivatedPage);
     return () => unListen();
   }, [history, dispatch]);
-  
+
   return (
-    <HelmetProvider>
       <ThemeProvider theme={ theme }>
         <Navbar/>
         <Switch>
@@ -51,7 +50,6 @@ const App = () => {
           }
         </Switch>
       </ThemeProvider>
-    </HelmetProvider>
   );
 };
 
