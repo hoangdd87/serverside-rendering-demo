@@ -27,9 +27,7 @@ const initialState = pokemonsAdapter.getInitialState({
 export const pokemons = createSlice({
   name: 'pokemons',
   initialState,
-  reducers: {
-    pokemonAdded: pokemonsAdapter.addOne,
-  },
+  reducers: {},
   extraReducers: {
     [fetchPokemons.pending]: (state, action) => {
         state.loading = 'pending';
@@ -58,6 +56,5 @@ export const pokemons = createSlice({
   }
 })
 
-export const { pokemonAdded } = pokemons.actions;
 export default pokemons.reducer;
 

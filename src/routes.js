@@ -11,19 +11,13 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 const routes = [
   {
     path: PATHS.HOME,
-    render: () => {
-      return <HomePage/>
-    },
+    render: () => <HomePage/>,
     exact: true,
     hydrate: true,
   },
   {
     path: PATHS.POKEMONS,
-    render: () => {
-      return (
-        <PokemonsPage/>
-      )
-    },
+    render: () => <PokemonsPage/>,
     exact: true,
     hydrate: true,
     fetchDataForPage: ({ search }) => dispatch => {
@@ -35,9 +29,7 @@ const routes = [
   },
   {
     path: PATHS.POKEMON_DETAIL,
-    render: () => {
-      return <PokemonPage/>
-    },
+    render: () => <PokemonPage/>,
     exact: true,
     fetchDataForPage: ({ params }) => dispatch => {
       const id = params.id;
@@ -47,16 +39,12 @@ const routes = [
   },
   {
     path: PATHS.ADMIN,
-    render: () => {
-      return <AdminPage/>
-    },
+    render: () => <AdminPage/>,
     hydrate: false,
   },
   {
     path: PATHS.NOT_FOUND,
-    render: () => (
-      <NotFoundPage/>
-    ),
+    render: () => <NotFoundPage/>,
     hydrate: false
   }
 ]

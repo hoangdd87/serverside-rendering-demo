@@ -65,9 +65,6 @@ app.get('*', async (request, response) => {
 
   const { helmet } = helmetContext;
 
-  console.log('helmet = ', helmet);
-  console.log('helmet = ', helmet.title.toString());
-  
   const htmlResponse = indexHtmlFile
     .replace('<div id="root"></div>', `<div id="root">${ app }</div>`)
     .replace('<style id="jss-server-side"></style>', `<style id="jss-server-side">${ sheets.toString() }</style>`)

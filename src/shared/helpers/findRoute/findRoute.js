@@ -1,7 +1,7 @@
 import routes from '../../../routes';
 import { matchPath } from 'react-router-dom';
 
-const findRoute = (pathname) => {
+const findRoute = pathname => {
   let match = null;
   const foundRoute = routes.find(route => {
     match = matchPath(pathname, {

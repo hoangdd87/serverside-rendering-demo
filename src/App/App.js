@@ -7,9 +7,7 @@ import routes from '../routes';
 import Navbar from './Navbar/Navbar';
 import findRoute from '../shared/helpers/findRoute/findRoute';
 import { useDispatch } from 'react-redux';
-import HomePage from '../pages/HomePage/HomePage';
 import theme from '../theme';
-import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 const App = () => {
@@ -34,11 +32,6 @@ const App = () => {
       <ThemeProvider theme={ theme }>
         <Navbar/>
         <Switch>
-          <Route
-            path={ '/' }
-            exact={ true }
-            component={ HomePage }
-          />
           {
             routes.map(route => (
               <Route
