@@ -9,9 +9,8 @@ import {HelmetProvider} from "react-helmet-async";
 
 // ************** Config front-end store *********************
 const preloadedState = window.__PRELOADED_STATE__
-delete window.__PRELOADED_STATE__
 const store = getStore(preloadedState );
-//*****************************************************************
+// *****************************************************************
 
 const { foundRoute, match } = findRoute(window.location.pathname);
 if((foundRoute && !foundRoute.hydrate) || process.env.NODE_ENV === 'development') {

@@ -4,6 +4,7 @@ A demo about how to make SSR for a SPA created by crete-react-app. This project 
 browser. Using ReactDOM.rederToString() in server and ReactDOM.hydrate() in browser for all ssr pages.
 
 Live demo: https://serverside-rendering-cra.df.r.appspot.com/
+Video: (Vietnamese) https://www.youtube.com/watch?v=YTOk8_T6-Wg
 
 ## Installation
 
